@@ -1,8 +1,4 @@
-import zipfile
-
-zip_path = '/mnt/data/site_oranvix.zip'
-with zipfile.ZipFile(zip_path, 'w') as zipf:
-    zipf.writestr('index.html', '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -80,3 +76,4 @@ with zipfile.ZipFile(zip_path, 'w') as zipf:
 </html>''')
 
 zip_path
+
