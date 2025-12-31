@@ -6,8 +6,6 @@
     <meta name="description" content="Oranvix - Suporte técnico remoto especializado. Remoção de vírus, otimização de PC e suporte AnyDesk.">
     <title>Oranvix - Suporte Técnico Remoto</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -18,131 +16,139 @@
             --success: #25d366;
             --danger: #e53935;
             --dark: #111;
-            --light-bg: #f4f7f9;
+            --light-bg: #f0f2f5;
             --glass: rgba(255, 255, 255, 0.95);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--light-bg); color: #333; line-height: 1.6; }
-
-        /* HEADER & PARTICLES */
+        body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
+        
+        /* Header & Particles */
         header {
             position: relative;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             text-align: center;
-            padding: 100px 20px 80px;
+            padding: 80px 20px 100px;
             overflow: hidden;
         }
         
         #particles {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.3; z-index: 1; pointer-events: none;
+            opacity: 0.3; z-index: 1;
         }
 
         .header-content { position: relative; z-index: 2; }
 
-        /* LOGO STYLE */
-        .logo-container {
-            margin-bottom: 25px;
+        /* ESTILIZAÇÃO DO LOGO */
+        .logo-box {
+            display: inline-block;
+            margin-bottom: 20px;
             animation: fadeInUp 0.8s ease;
         }
-        .logo-img {
-            max-width: 180px;
+
+        .logo-box img {
+            max-width: 220px; /* Tamanho ideal para desktop */
             height: auto;
-            /* Filtro para garantir que se a logo for escura, ela brilhe no fundo azul */
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
-        }
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-transform: uppercase;
+            display: block;
+            margin: 0 auto;
+            /* Brilho suave para destacar do fundo azul */
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
 
-        header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-bottom: 10px; font-weight: 700; }
-        header p { font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto 30px; }
+        header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 10px; }
+        header p { font-size: 1.1rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
 
-        /* BOTÕES */
+        /* Botões */
         .btn {
-            padding: 16px 32px;
+            padding: 16px 35px;
             border-radius: 50px;
+            font-size: 18px;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             color: #fff;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
         .btn-whatsapp { background: var(--success); }
-        .btn-whatsapp:hover { background: #1ebe57; transform: scale(1.05); }
+        .btn-anydesk { background: var(--danger); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 
-        /* CONTEÚDO */
+        /* Conteúdo Principal */
         .container {
             width: 90%;
             max-width: 1100px;
-            margin: -50px auto 60px;
+            margin: -50px auto 50px;
             position: relative;
             z-index: 3;
         }
 
         .card {
             background: var(--glass);
+            backdrop-filter: blur(10px);
             padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.5);
         }
 
-        h2 { color: var(--secondary); margin-bottom: 25px; font-size: 1.5rem; display: flex; align-items: center; gap: 12px; }
-        
-        .services-grid {
+        h2 { color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
+
+        /* Serviços */
+        .services-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            list-style: none;
         }
-        .service-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
-        }
-        .service-item i { color: var(--primary); font-size: 1.2rem; }
+        .services-list li { font-size: 16px; display: flex; align-items: center; gap: 10px; }
+        .services-list li i { color: var(--success); font-size: 1.1rem; }
 
-        /* PREÇOS */
-        .price-box {
+        /* Preços */
+        .price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            background: #f8fafc;
+            text-align: center;
+        }
+        .price-item {
+            background: #fff;
             padding: 25px;
-            border-radius: 18px;
-            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #eef2f7;
+            transition: 0.3s;
         }
-        .price-card h3 { font-size: 0.9rem; color: #666; text-transform: uppercase; }
-        .price-card div { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .price-item:hover { border-color: var(--primary); }
+        .price-item p { color: #666; font-weight: 600; margin-bottom: 5px; }
+        .price-item strong { display: block; font-size: 28px; color: var(--primary); }
 
-        /* ANYDESK SECTION */
-        .anydesk-box {
-            text-align: center;
-            background: #fff0f0;
-            border: 2px dashed #ffcdd2;
+        /* Depoimentos */
+        .testimonial {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-style: italic;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
-        .btn-anydesk { background: var(--danger); margin: 20px 0; }
 
-        footer { background: var(--dark); color: #999; text-align: center; padding: 50px 20px; }
+        footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 768px) {
-            .container { margin-top: 20px; }
+        @media(max-width: 768px) {
+            header { padding: 60px 20px 80px; }
+            .logo-box img { max-width: 160px; }
             .card { padding: 25px; }
         }
     </style>
@@ -152,79 +158,91 @@
 <header>
     <canvas id="particles"></canvas>
     <div class="header-content">
-        <div class="logo-container">
-            <span class="logo-text">ORANVIX</span>
+        <div class="logo-box">
+            <img src="logo.png" alt="Oranvix Suporte Técnico">
         </div>
         <h1>Suporte Técnico Especializado</h1>
-        <p>Atendimento remoto rápido para problemas de lentidão, vírus, Wi-Fi e impressoras. Segurança e confiança no conforto da sua casa.</p>
-        <a href="https://wa.me/5581984886096?text=Olá!+Preciso+de+suporte+técnico+para+meu+computador." class="btn btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> Falar com o Técnico
+        <p>Atendimento remoto ágil para resolver lentidão, configurar impressoras e eliminar vírus com total segurança.</p>
+        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico." target="_blank">
+            <i class="fab fa-whatsapp"></i> Iniciar Atendimento
         </a>
     </div>
 </header>
 
 <main class="container">
     <section class="card">
-        <h2><i class="fas fa-microchip"></i> Como podemos ajudar?</h2>
-        <div class="services-grid">
-            <div class="service-item"><i class="fas fa-check-circle"></i> Limpeza de Vírus e Malwares</div>
-            <div class="service-item"><i class="fas fa-check-circle"></i> Otimização de Inicialização</div>
-            <div class="service-item"><i class="fas fa-check-circle"></i> Instalação de Impressoras</div>
-            <div class="service-item"><i class="fas fa-check-circle"></i> Configuração de Roteadores</div>
-            <div class="service-item"><i class="fas fa-check-circle"></i> Recuperação de Arquivos</div>
-            <div class="service-item"><i class="fas fa-check-circle"></i> Suporte para Programas</div>
-        </div>
+        <h2><i class="fas fa-screwdriver-wrench"></i> O que resolvemos</h2>
+        <ul class="services-list">
+            <li><i class="fas fa-check-circle"></i> Remoção de Vírus e Malwares</li>
+            <li><i class="fas fa-check-circle"></i> Otimização de Inicialização</li>
+            <li><i class="fas fa-check-circle"></i> Configuração de Impressoras</li>
+            <li><i class="fas fa-check-circle"></i> Instalação de Programas</li>
+            <li><i class="fas fa-check-circle"></i> Redes Wi-Fi e Roteadores</li>
+            <li><i class="fas fa-check-circle"></i> Backup e Recuperação</li>
+        </ul>
     </section>
 
     <section class="card">
-        <h2><i class="fas fa-hand-holding-dollar"></i> Valores Transparentes</h2>
-        <div class="price-box">
-            <div class="price-card">
-                <h3>Até 15 Minutos</h3>
-                <div>R$ 25</div>
+        <h2><i class="fas fa-hand-holding-dollar"></i> Investimento</h2>
+        <div class="price-grid">
+            <div class="price-item">
+                <p>Suporte Rápido</p>
+                <strong>R$ 25</strong>
+                <small>Soluções até 15 min</small>
             </div>
-            <div class="price-card">
-                <h3>Sessão Completa</h3>
-                <div>R$ 50</div>
+            <div class="price-item">
+                <p>Sessão Completa</p>
+                <strong>R$ 50</strong>
+                <small>30 a 60 min</small>
             </div>
-            <div class="price-card">
-                <h3>Plano Mensal</h3>
-                <div>R$ 70</div>
+            <div class="price-item">
+                <p>Plano Mensal</p>
+                <strong>R$ 70</strong>
+                <small>Empresas e Home Office</small>
             </div>
         </div>
     </section>
 
-    <section class="card anydesk-box">
-        <h2><i class="fas fa-shield-alt"></i> Acesso Seguro e Remoto</h2>
-        <p>Utilizamos a tecnologia AnyDesk. Você acompanha tudo em tempo real e mantém o controle total do seu mouse.</p>
-        <a href="https://anydesk.com/pt/downloads" target="_blank" class="btn btn-anydesk">
-            <i class="fas fa-download"></i> Baixar AnyDesk Oficial
+    <section class="card" style="text-align: center;">
+        <h2><i class="fas fa-shield-halved"></i> Como Funciona?</h2>
+        <p>Baixe o AnyDesk oficial para que possamos conectar com segurança ao seu dispositivo.</p>
+        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
+            <i class="fas fa-download"></i> Baixar AnyDesk
         </a>
+        <p style="margin-top: 25px; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <i class="fas fa-info-circle"></i> <strong>Nota de Segurança:</strong> Você acompanha cada movimento do mouse e pode encerrar a conexão a qualquer momento.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2><i class="fas fa-star"></i> Avaliações</h2>
+        <div class="testimonial">"Atendimento impecável e muito rápido. Salvou meu dia de trabalho!" – <strong>Ana Oliveira</strong></div>
+        <div class="testimonial">"Excelente custo-benefício. Resolve problemas que outros técnicos cobram o dobro." – <strong>Paulo Silva</strong></div>
     </section>
 </main>
 
 <footer>
-    <p>&copy; 2025 Oranvix – Soluções Digitais</p>
-    <p style="font-size: 0.8rem; margin-top: 10px;">Atendimento em todo o Brasil via conexão remota.</p>
+    <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
+    <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
 </footer>
 
 <script>
-    // Script de Partículas Otimizado
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
 
-    function init() {
+    function initParticles() {
         canvas.width = window.innerWidth;
         canvas.height = document.querySelector('header').offsetHeight;
         particlesArray = [];
-        for (let i = 0; i < 70; i++) {
+        const quantity = (canvas.width * canvas.height) / 18000;
+        for (let i = 0; i < quantity; i++) {
             particlesArray.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 size: Math.random() * 2 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.8,
-                speedY: (Math.random() - 0.5) * 0.8
+                speedX: (Math.random() - 0.5) * 0.7,
+                speedY: (Math.random() - 0.5) * 0.7
             });
         }
     }
@@ -232,21 +250,19 @@
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particlesArray.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
+            p.x += p.speedX; p.y += p.speedY;
             if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
             if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-            ctx.fillStyle = 'rgba(255,255,255,0.4)';
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
             ctx.fill();
         });
         requestAnimationFrame(animate);
     }
 
-    window.addEventListener('resize', init);
-    init();
-    animate();
+    window.addEventListener('resize', initParticles);
+    initParticles(); animate();
 </script>
 
 </body>
