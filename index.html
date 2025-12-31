@@ -3,187 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oranvix - Suporte técnico remoto especializado. Remoção de vírus, otimização de PC, redes Wi-Fi e suporte AnyDesk.">
     <title>Oranvix - Suporte Técnico Remoto</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #f0f2f5; color: #333; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        /* Header */
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #0b4bb3;
+            --success: #25d366;
+            --danger: #e53935;
+            --dark: #111;
+            --light-bg: #f0f2f5;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* Header com Efeito Partículas */
         header {
             position: relative;
-            background: linear-gradient(135deg, #1a73e8, #0b4bb3);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             text-align: center;
-            padding: 100px 20px 60px;
+            padding: 120px 20px 80px;
             overflow: hidden;
         }
+        
+        #particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        header .content { position: relative; z-index: 2; }
+
         header img {
-            width: 140px;
+            width: 150px;
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease forwards;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+            animation: fadeInUp 1s ease;
         }
-        header h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            animation: fadeInUp 1s ease forwards;
-        }
-        header p {
-            font-size: 20px;
-            opacity: 0.9;
-            animation: fadeInUp 1.2s ease forwards;
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            padding: 15px 30px;
-            color: #fff;
+
+        header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 15px; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        /* Botões */
+        .btn {
+            padding: 15px 35px;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 600;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             margin-top: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            animation: float 3s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: #fff;
         }
-        .btn-whatsapp:hover { transform: scale(1.05); }
+        .btn-whatsapp { background: var(--success); }
+        .btn-anydesk { background: var(--danger); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
 
-        /* Seções */
-        .section {
+        /* Grid de Seções */
+        .container {
             width: 90%;
             max-width: 1100px;
-            margin: 50px auto;
-        }
-        .card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #0b4bb3;
-        }
-        ul li {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-        .price-box {
-            background: #1a73e8;
-            padding: 30px;
-            border-radius: 16px;
-            color: #fff;
-            font-size: 20px;
-            text-align: center;
-            line-height: 1.8;
-        }
-        .testimonials p {
-            background: #f7f7f7;
-            padding: 15px;
-            border-left: 4px solid #1a73e8;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            font-size: 17px;
+            margin: -40px auto 50px;
+            position: relative;
+            z-index: 3;
         }
 
-        /* Footer */
-        footer {
-            background: #111;
-            color: #ccc;
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-            font-size: 15px;
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: 0.3s;
         }
+        .card:hover { transform: translateY(-5px); }
+
+        h2 { color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+
+        /* Lista de Serviços */
+        ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        ul li { font-size: 17px; display: flex; align-items: center; gap: 10px; }
+        ul li i { color: var(--success); }
+
+        /* Tabela de Preços */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .price-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #eef2f7;
+        }
+        .price-item strong { display: block; font-size: 24px; color: var(--primary); }
+
+        /* Depoimentos */
+        .testimonial {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-style: italic;
+            border-left: 5px solid var(--primary);
+        }
+
+        footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
 
         /* Animações */
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Canvas de partículas */
-        canvas#particles {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.25;
-        }
-
-        /* Responsividade */
-        @media(max-width:768px){
-            header h1 { font-size: 32px; }
-            header p { font-size: 16px; }
-            .price-box { font-size: 18px; }
-            ul li { font-size: 16px; }
+        @media(max-width: 768px) {
+            header { padding: 80px 20px 60px; }
+            .container { margin-top: 20px; }
+            .card { padding: 25px; }
         }
     </style>
 </head>
 <body>
+
 <header>
     <canvas id="particles"></canvas>
-    <!-- LOGO SEM A PALAVRA "DIGITAL" -->
-   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAGQCAIAAABbV3phAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAgAElEQVR4nOzdW5Qk+X3/8edlvXtI4wiGSkxIhpCM6ciSKRKQGRIkTJkiRIkTJkiRJkxPSr1Gl0/p3dS/vz0tq7c5vvW3bZu95tXWq7r13dX//v17daNzrOwIdvzzjG7MEAxC9/EDMZYZAYg4AMAOwFgj9gYQEQYQDoBwApAJAnBcCvQfAB+4ARuDEgCBkh7N3AfSQFiIGwAc6kxBIP6s0NgCMgECgygDICQFc/Agy/5MGAC1QAogKAnAABhzwJwEgAojygRCPvCwBQCNCzDKUAXEMh54ZgoKZJ4AyPz1x0HF2CsJuD7SOMTJBJwUgGgBwT+hnB+fBHxqLhhq4AOIUTR5kOE5cAmg7kOA5k+AHAyQOJIKCzns5GcDvA2jQBQCIkywC3MZ1fi38/I/uO07Y8+nzG/sxkElADiA4Uy3rIUXgI8lUyfu0Ec9Skb3O+4W5HQ4UZwTiLuU9b0GYEDOBMBpiAIDlnJOM2OSCRQAv5gZYwlO+K4Q8ZAgT7E0AkygrAJkHo5iANAmAa4TwKACQFJAAAlgoQ7YGwCkBQTAACWAzEuAIr4AX0wAI1wEjDQAcEZCijwIwLgB1lAwEMLyAPyG1JgDBUAQIuBfUkCTKwFoXYAQvDgBPApOYAhxDD6AbBWcwTgIrweDFQFOL0CUJAqAzAuFZ3ByA0IxyQq3A5AzgMAFAaxCUCQF58qEB4CsE3AIBgBQzAakLgDSHw6CrAsQGwDw+M0BQAwEDAzgFADjADIDBIATCaAsAWIhAAJ9VgE3JiA4I94AJkoA0JSCjAgJDKAQ0IQCQDWCoDxZ8Cg8EsDrwFw4DdAcQnBIAA0MQD8BY+iy7vfYqZ+u01v6Vvt1nt9l62m9Vq3W6v3a5/k95yxwNAA7Ai+B7GMAwAAcTAHH3b/tLAAAAAAAAAAAAAAB4+vNcDAAAAADwX/v+AIgAQAAqAICqAzAAgAAApYDwQkAPwBAAAAEAMiAACgFgIAsBMCdH8BQAAAAJDoOAAiBoAjAOgPAAoA8NQUAAAAC0CIAwAAABQA4AgAAAHoAAJMCABoCAA4AAAFAHwAEAAEAAJQCAABAQAAAE4ABAAwAAEAoAGFAOAAgAIEAxAAIgAIADDAAQAAABAAGAAgAAABwAAgAOABAAHgDAAAQAgHhAAAIAMAABgAAAIAAQAgAIAAABwAAgAIAAoAIcAgBMAAUAHgAwAD8EAAAKAcAHgBIAHAA4ABAADADgHgBQAGAAIAFAAQAAUAHwBAAAAIcACAAIABgAABgAAAgAgAAUAAwAAEAQAIAHgBwAIAIAAAABQAAgAAcAAIAAAAGABAAwAAEAAQAAJAAIAABAAIAAAIAAQACAAQAAQAAgAAEAQAAQACAAcAAIAAAACAAQAIAAAIAAAwAAIAAAAgAAIABgAAgAAABgAAEAAgAAEAAACAAQAAEAAIAAQAAIAAAwAAEAACAAQAAIACAAQAAgAAIAAAwAAIAAAAgAAIABgAAIAAAABgAAIAAAwAAIAAAAgAAIABgAAIAAAABgAAIAAAwAAIAAAAgAAIABgAAIAAAABgAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAAAIAAAwAAIAAAAgAAIAA
-
-
-
-
-    <h1>Oranvix – Suporte Técnico Remoto</h1>
-    <p>Atendimento rápido, seguro e confiável para computadores, Wi-Fi, impressoras e otimização completa.</p>
-    <a class="btn-whatsapp" href="https://wa.me/5581999999999" target="_blank">Atendimento via WhatsApp pelo tel-81984886096 </a>
+    <div class="content">
+        <img src="logo.png" alt="Oranvix Logo" onerror="this.style.display='none'">
+        <h1>Oranvix Suporte Técnico</h1>
+        <p>Soluções rápidas e seguras sem você sair de casa. Especialistas em otimização, redes e segurança digital.</p>
+        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico+remoto." target="_blank">
+            <i class="fab fa-whatsapp"></i> Iniciar Atendimento Agora
+        </a>
+    </div>
 </header>
 
-<main class="section">
+<main class="container">
     <section class="card">
-        <h2>Serviços</h2>
+        <h2><i class="fas fa-tools"></i> Nossos Serviços</h2>
         <ul>
-            <li>📌 Remoção de vírus, travamentos e lentidão</li>
-            <li>📌 Instalação e atualização de softwares</li>
-            <li>📌 Configurações de Wi-Fi e redes</li>
-            <li>📌 Impressoras: instalação, drivers e ajustes</li>
-            <li>📌 Backup e recuperação de arquivos</li>
-            <li>📌 Suporte para idosos e iniciantes</li>
+            <li><i class="fas fa-check-circle"></i> Remoção de Vírus e Malwares</li>
+            <li><i class="fas fa-check-circle"></i> Instalação de Softwares</li>
+            <li><i class="fas fa-check-circle"></i> Otimização de Lentidão</li>
+            <li><i class="fas fa-check-circle"></i> Configuração de Impressoras</li>
+            <li><i class="fas fa-check-circle"></i> Redes Wi-Fi e Segurança</li>
+            <li><i class="fas fa-check-circle"></i> Backup em Nuvem</li>
         </ul>
     </section>
 
     <section class="card">
-        <h2>Valores</h2>
-        <div class="price-box">
-            Suporte Rápido (até 15 min): <strong>R$ 25</strong><br>
-            Suporte Completo (30–60 min): <strong>R$ 50</strong><br>
-            Plano Mensal: <strong>R$ 70</strong>
+        <h2><i class="fas fa-tags"></i> Investimento</h2>
+        <div class="price-grid">
+            <div class="price-item">
+                <p>Suporte Rápido</p>
+                <strong>R$ 25</strong>
+                <small>Até 15 min</small>
+            </div>
+            <div class="price-item">
+                <p>Suporte Completo</p>
+                <strong>R$ 50</strong>
+                <small>30 a 60 min</small>
+            </div>
+            <div class="price-item">
+                <p>Plano Mensal</p>
+                <strong>R$ 70</strong>
+                <small>Suporte ilimitado</small>
+            </div>
         </div>
     </section>
 
-    <section class="card">
-        <h2>Como Funciona?</h2>
-        <p>1️⃣ Você chama no WhatsApp<br>2️⃣ Descreve o problema<br>3️⃣ Acesso remoto via AnyDesk<br>4️⃣ Solução rápida e segura!</p>
-        <a class="btn-whatsapp" style="background:#e53935" href="https://anydesk.com/pt/downloads" target="_blank">Baixar AnyDesk</a>
+    <section class="card" style="text-align: center;">
+        <h2><i class="fas fa-laptop-house"></i> Como Funciona?</h2>
+        <p>Baixe o AnyDesk para que possamos realizar o acesso seguro ao seu computador.</p>
+        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
+            <i class="fas fa-download"></i> Baixar AnyDesk Oficial
+        </a>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+            <i class="fas fa-user-shield"></i> <strong>Sua privacidade é prioridade:</strong> Você acompanha todo o processo na tela e pode encerrar a conexão a qualquer momento.
+        </p>
     </section>
 
-    <section class="card testimonials">
-        <h2>Depoimentos</h2>
-        <p>⭐⭐⭐⭐⭐ “Resolveu meu problema em minutos! Muito profissional.” – Ana</p>
-        <p>⭐⭐⭐⭐⭐ “Minha impressora voltou a funcionar! Atendimento top.” – Paulo</p>
-        <p>⭐⭐⭐⭐⭐ “Explica tudo com calma. Excelente suporte.” – Roberto</p>
+    <section class="card">
+        <h2><i class="fas fa-comment-dots"></i> O que dizem nossos clientes</h2>
+        <div class="testimonial">"Excelente atendimento! Meu notebook estava travando muito e agora está voando. Recomendo!" – <strong>Ana Oliveira</strong></div>
+        <div class="testimonial">"Profissional muito paciente, explicou cada passo da configuração da minha rede." – <strong>Paulo Silva</strong></div>
     </section>
 </main>
 
 <footer>
-    © 2025 Oranvix – Todos os direitos reservados
+    <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
+    <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
 </footer>
 
 <script>
@@ -193,65 +216,40 @@
 
     function initParticles() {
         canvas.width = window.innerWidth;
-        canvas.height = document.body.scrollHeight;
+        canvas.height = document.querySelector('header').offsetHeight;
         particlesArray = [];
-        const numberOfParticles = Math.floor(canvas.width / 10);
+        const numberOfParticles = (canvas.width * canvas.height) / 15000;
         for (let i = 0; i < numberOfParticles; i++) {
             particlesArray.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: (Math.random() - 0.5) * 1.5,
-                speedY: (Math.random() - 0.5) * 1.5
+                size: Math.random() * 2 + 1,
+                speedX: (Math.random() - 0.5) * 1,
+                speedY: (Math.random() - 0.5) * 1
             });
         }
     }
 
-    function drawParticles() {
+    function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particlesArray.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = '#ffffff';
-            ctx.fill();
-        });
-        connectParticles();
-    }
-
-    function connectParticles() {
-        for (let a = 0; a < particlesArray.length; a++) {
-            for (let b = a; b < particlesArray.length; b++) {
-                let dx = particlesArray[a].x - particlesArray[b].x;
-                let dy = particlesArray[a].y - particlesArray[b].y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255,255,255,${1 - distance / 100})`;
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-
-    function animateParticles() {
-        drawParticles();
         particlesArray.forEach(p => {
             p.x += p.speedX;
             p.y += p.speedY;
-            if (p.x < 0 || p.x > canvas.width) p.speedX = -p.speedX;
-            if (p.y < 0 || p.y > canvas.height) p.speedY = -p.speedY;
+            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.fill();
         });
-        requestAnimationFrame(animateParticles);
+        requestAnimationFrame(animate);
     }
 
-    window.addEventListener('resize', () => initParticles());
+    window.addEventListener('resize', initParticles);
     initParticles();
-    animateParticles();
+    animate();
 </script>
+
 </body>
 </html>
-
-
