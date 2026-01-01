@@ -264,8 +264,20 @@
     window.addEventListener('resize', initParticles);
     initParticles(); animate();
 </script>
+<script>
+    const whatsappButton = document.getElementById('whatsappButton');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) { // altura do scroll (px)
+            whatsappButton.classList.add('show');
+        } else {
+            whatsappButton.classList.remove('show');
+        }
+    });
+</script>
 
 </body>
 </html>
+
 
 
