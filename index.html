@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oranvix - Suporte técnico remoto especializado. Remoção de vírus, otimização de PC e suporte AnyDesk.">
-    <title>Oranvix - Suporte Técnico Remoto</title>
-    
+    <meta name="description" content="Suporte técnico remoto rápido e seguro. Remoção de vírus, otimização de PC, impressoras e atendimento via AnyDesk.">
+    <title>Oranvix | Suporte Técnico Remoto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -20,10 +22,20 @@
             --glass: rgba(255, 255, 255, 0.95);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
-        
-        /* Header & Particles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
         header {
             position: relative;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -32,35 +44,38 @@
             padding: 80px 20px 100px;
             overflow: hidden;
         }
-        
+
         #particles {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.3; z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 1;
         }
 
-        .header-content { position: relative; z-index: 2; }
-
-        /* ESTILIZAÇÃO DO LOGO */
-        .logo-box {
-            display: inline-block;
-            margin-bottom: 20px;
-            animation: fadeInUp 0.8s ease;
+        .header-content {
+            position: relative;
+            z-index: 2;
         }
 
         .logo-box img {
-            max-width: 220px; /* Tamanho ideal para desktop */
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            /* Brilho suave para destacar do fundo azul */
+            max-width: 220px;
+            margin-bottom: 20px;
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
         }
 
-        header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 10px; }
-        header p { font-size: 1.1rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin-bottom: 10px;
+        }
 
-        /* Botões */
+        header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         .btn {
             padding: 16px 35px;
             border-radius: 50px;
@@ -75,11 +90,15 @@
             text-decoration: none;
             transition: 0.3s;
         }
-        .btn-whatsapp { background: var(--success); }
-        .btn-anydesk { background: var(--danger); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 
-        /* Conteúdo Principal */
+        .btn-whatsapp {
+            background: var(--success);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
         .container {
             width: 90%;
             max-width: 1100px;
@@ -90,69 +109,84 @@
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(10px);
             padding: 40px;
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.4);
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             margin-bottom: 30px;
         }
 
-        h2 { color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
-
-        /* Serviços */
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-            list-style: none;
+        h2 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
         }
-        .services-list li { font-size: 16px; display: flex; align-items: center; gap: 10px; }
-        .services-list li i { color: var(--success); font-size: 1.1rem; }
 
-        /* Preços */
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        footer {
+            background: var(--dark);
+            color: #888;
             text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
         }
-        .price-item {
+
+        /* =========================
+           WHATSAPP FLUTUANTE
+        ========================= */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: 0.4s;
+        }
+
+        .whatsapp-container.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .whatsapp-bubble {
             background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #eef2f7;
-            transition: 0.3s;
-        }
-        .price-item:hover { border-color: var(--primary); }
-        .price-item p { color: #666; font-weight: 600; margin-bottom: 5px; }
-        .price-item strong { display: block; font-size: 28px; color: var(--primary); }
-
-        /* Depoimentos */
-        .testimonial {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-style: italic;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            color: #333;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            white-space: nowrap;
         }
 
-        footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .whatsapp-float {
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
         }
 
-        @media(max-width: 768px) {
-            header { padding: 60px 20px 80px; }
-            .logo-box img { max-width: 160px; }
-            .card { padding: 25px; }
+        @media (max-width: 768px) {
+            .whatsapp-bubble {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -162,8 +196,8 @@
             <img src="logo.png" alt="Oranvix Suporte Técnico">
         </div>
         <h1>Suporte Técnico Especializado</h1>
-        <p>Atendimento remoto ágil para resolver lentidão, configurar impressoras e eliminar vírus com total segurança.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico." target="_blank">
+        <p>Atendimento remoto ágil e seguro.</p>
+        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096" target="_blank">
             <i class="fab fa-whatsapp"></i> Iniciar Atendimento
         </a>
     </div>
@@ -171,104 +205,32 @@
 
 <main class="container">
     <section class="card">
-        <h2><i class="fas fa-screwdriver-wrench"></i> O que resolvemos</h2>
-        <ul class="services-list">
-            <li><i class="fas fa-check-circle"></i> Remoção de Vírus e Malwares</li>
-            <li><i class="fas fa-check-circle"></i> Otimização de Inicialização</li>
-            <li><i class="fas fa-check-circle"></i> Configuração de Impressoras</li>
-            <li><i class="fas fa-check-circle"></i> Instalação de Programas</li>
-            <li><i class="fas fa-check-circle"></i> Redes Wi-Fi e Roteadores</li>
-            <li><i class="fas fa-check-circle"></i> Backup e Recuperação</li>
-        </ul>
-    </section>
-
-    <section class="card">
-        <h2><i class="fas fa-hand-holding-dollar"></i> Investimento</h2>
-        <div class="price-grid">
-            <div class="price-item">
-                <p>Suporte Rápido</p>
-                <strong>R$ 25</strong>
-                <small>Soluções até 15 min</small>
-            </div>
-            <div class="price-item">
-                <p>Sessão Completa</p>
-                <strong>R$ 50</strong>
-                <small>30 a 60 min</small>
-            </div>
-            <div class="price-item">
-                <p>Plano Mensal</p>
-                <strong>Acombina</strong>
-                <small>Empresas e Home Office</small>
-            </div>
-        </div>
-    </section>
-
-    <section class="card" style="text-align: center;">
-        <h2><i class="fas fa-shield-halved"></i> Como Funciona?</h2>
-        <p>Baixe o AnyDesk oficial para que possamos conectar com segurança ao seu dispositivo.</p>
-        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
-            <i class="fas fa-download"></i> Baixar AnyDesk
-        </a>
-        <p style="margin-top: 25px; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <i class="fas fa-info-circle"></i> <strong>Nota de Segurança:</strong> Você acompanha cada movimento do mouse e pode encerrar a conexão a qualquer momento.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2><i class="fas fa-star"></i> Avaliações</h2>
-        <div class="testimonial">"Atendimento impecável e muito rápido. Salvou meu dia de trabalho!" – <strong>Ana Oliveira</strong></div>
-        <div class="testimonial">"Excelente custo-benefício. Resolve problemas que outros técnicos cobram o dobro." – <strong>Paulo Silva</strong></div>
+        <h2><i class="fas fa-screwdriver-wrench"></i> Serviços</h2>
+        <p>Remoção de vírus, otimização, impressoras, redes e suporte completo.</p>
     </section>
 </main>
 
 <footer>
     <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
-    <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
 </footer>
 
+<!-- BOTÃO WHATSAPP -->
+<div class="whatsapp-container" id="whatsappButton">
+    <div class="whatsapp-bubble">Fale conosco</div>
+    <a href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+suporte+técnico."
+       class="whatsapp-float"
+       target="_blank"
+       aria-label="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
 <script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-
-    function initParticles() {
-        canvas.width = window.innerWidth;
-        canvas.height = document.querySelector('header').offsetHeight;
-        particlesArray = [];
-        const quantity = (canvas.width * canvas.height) / 18000;
-        for (let i = 0; i < quantity; i++) {
-            particlesArray.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.7,
-                speedY: (Math.random() - 0.5) * 0.7
-            });
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particlesArray.forEach(p => {
-            p.x += p.speedX; p.y += p.speedY;
-            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-            ctx.fill();
-        });
-        requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', initParticles);
-    initParticles(); animate();
-</script>
-<script>
+    // Mostrar WhatsApp após rolar a página
     const whatsappButton = document.getElementById('whatsappButton');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 200) { // altura do scroll (px)
+        if (window.scrollY > 200) {
             whatsappButton.classList.add('show');
         } else {
             whatsappButton.classList.remove('show');
@@ -278,6 +240,3 @@
 
 </body>
 </html>
-
-
-
