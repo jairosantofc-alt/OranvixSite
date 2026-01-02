@@ -11,13 +11,13 @@
 
     <style>
         :root {
-            --primary: #1a73e8;
-            --secondary: #0b4bb3;
+            --primary: #0f6bfd;        /* Azul principal do logo */
+            --secondary: #003087;      /* Azul escuro */
+            --dark: #000000;           /* Preto do logo */
             --success: #25d366;
             --danger: #e53935;
-            --dark: #111;
-            --light-bg: #f0f2f5;
-            --glass: rgba(255, 255, 255, 0.95);
+            --light-bg: #e9eef5;
+            --glass: rgba(255, 255, 255, 0.93);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -26,7 +26,7 @@
         /* Header & Particles */
         header {
             position: relative;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #000000, #003087, #0f6bfd);
             color: #fff;
             text-align: center;
             padding: 80px 20px 100px;
@@ -49,12 +49,11 @@
         }
 
         .logo-box img {
-            max-width: 220px; /* Tamanho ideal para desktop */
+            max-width: 220px;
             height: auto;
             display: block;
             margin: 0 auto;
-            /* Brilho suave para destacar do fundo azul */
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 0 12px rgba(15, 107, 253, 0.45)); /* brilho azul */
         }
 
         header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 10px; }
@@ -98,174 +97,4 @@
             margin-bottom: 30px;
         }
 
-        h2 { color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
-
-        /* Serviços */
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-            list-style: none;
-        }
-        .services-list li { font-size: 16px; display: flex; align-items: center; gap: 10px; }
-        .services-list li i { color: var(--success); font-size: 1.1rem; }
-
-        /* Preços */
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        .price-item {
-            background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #eef2f7;
-            transition: 0.3s;
-        }
-        .price-item:hover { border-color: var(--primary); }
-        .price-item p { color: #666; font-weight: 600; margin-bottom: 5px; }
-        .price-item strong { display: block; font-size: 28px; color: var(--primary); }
-
-        /* Depoimentos */
-        .testimonial {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-style: italic;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media(max-width: 768px) {
-            header { padding: 60px 20px 80px; }
-            .logo-box img { max-width: 160px; }
-            .card { padding: 25px; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <canvas id="particles"></canvas>
-    <div class="header-content">
-        <div class="logo-box">
-            <img src="logo4.png" alt="Oranvix Suporte Técnico">
-        </div>
-        <h1>Suporte Técnico Especializado</h1>
-        <p>Atendimento remoto ágil para resolver lentidão, configurar impressoras e eliminar vírus com total segurança.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico." target="_blank">
-            <i class="fab fa-whatsapp"></i> Iniciar Atendimento
-        </a>
-    </div>
-</header>
-
-<main class="container">
-    <section class="card">
-        <h2><i class="fas fa-screwdriver-wrench"></i> O que resolvemos</h2>
-        <ul class="services-list">
-            <li><i class="fas fa-check-circle"></i> Remoção de Vírus e Malwares</li>
-            <li><i class="fas fa-check-circle"></i> Otimização de Inicialização</li>
-            <li><i class="fas fa-check-circle"></i> Configuração de Impressoras</li>
-            <li><i class="fas fa-check-circle"></i> Instalação de Programas</li>
-            <li><i class="fas fa-check-circle"></i> Redes Wi-Fi e Roteadores</li>
-            <li><i class="fas fa-check-circle"></i> Backup e Recuperação</li>
-        </ul>
-    </section>
-
-    <section class="card">
-        <h2><i class="fas fa-hand-holding-dollar"></i> Investimento</h2>
-        <div class="price-grid">
-            <div class="price-item">
-                <p>Suporte Rápido</p>
-                <strong>R$ 25</strong>
-                <small>Soluções até 15 min</small>
-            </div>
-            <div class="price-item">
-                <p>Sessão Completa</p>
-                <strong>R$ 50</strong>
-                <small>30 a 60 min</small>
-            </div>
-            <div class="price-item">
-                <p>Plano Mensal</p>
-                <strong>R$ 70</strong>
-                <small>Empresas e Home Office</small>
-            </div>
-        </div>
-    </section>
-
-    <section class="card" style="text-align: center;">
-        <h2><i class="fas fa-shield-halved"></i> Como Funciona?</h2>
-        <p>Baixe o AnyDesk oficial para que possamos conectar com segurança ao seu dispositivo.</p>
-        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
-            <i class="fas fa-download"></i> Baixar AnyDesk
-        </a>
-        <p style="margin-top: 25px; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <i class="fas fa-info-circle"></i> <strong>Nota de Segurança:</strong> Você acompanha cada movimento do mouse e pode encerrar a conexão a qualquer momento.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2><i class="fas fa-star"></i> Avaliações</h2>
-        <div class="testimonial">"Atendimento impecável e muito rápido. Salvou meu dia de trabalho!" – <strong>Ana Oliveira</strong></div>
-        <div class="testimonial">"Excelente custo-benefício. Resolve problemas que outros técnicos cobram o dobro." – <strong>Paulo Silva</strong></div>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
-    <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
-</footer>
-
-<script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-
-    function initParticles() {
-        canvas.width = window.innerWidth;
-        canvas.height = document.querySelector('header').offsetHeight;
-        particlesArray = [];
-        const quantity = (canvas.width * canvas.height) / 18000;
-        for (let i = 0; i < quantity; i++) {
-            particlesArray.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.7,
-                speedY: (Math.random() - 0.5) * 0.7
-            });
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particlesArray.forEach(p => {
-            p.x += p.speedX; p.y += p.speedY;
-            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-            ctx.fill();
-        });
-        requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', initParticles);
-    initParticles(); animate();
-</script>
-
-</body>
-</html>
-
-
+        h2 { color: var(--secondary); margin-bottom
