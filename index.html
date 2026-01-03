@@ -11,9 +11,9 @@
 
     <style>
         :root {
-            --primary: #0f6bfd;       
-            --secondary: #003087;     
-            --dark: #000000;          
+            --primary: #0f6bfd;
+            --secondary: #003087;
+            --dark: #000000;
             --success: #25d366;
             --danger: #e53935;
             --light-bg: #e9eef5;
@@ -33,23 +33,11 @@
             overflow: hidden;
         }
 
-        #particles {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.28; z-index: 1;
-        }
+        #particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.28; z-index: 1; }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
+        .header-content { position: relative; z-index: 2; }
 
-        .logo-box {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 5;
-        }
+        .logo-box { position: absolute; top: 20px; left: 20px; z-index: 5; }
 
         .logo-box img {
             max-width: 180px;
@@ -77,6 +65,21 @@
         .btn-whatsapp { background: var(--success); }
         .btn-anydesk { background: var(--danger); }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+
+        /* BOTÃO PIX */
+        .btn-pix {
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+        .btn-pix:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 
         .container {
             width: 90%;
@@ -107,36 +110,56 @@
         .services-list li { font-size: 16px; display: flex; align-items: center; gap: 10px; }
         .services-list li i { color: var(--success); font-size: 1.1rem; }
 
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
+        /*** MODAL PIX ***/
+        .pix-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            align-items: center;
+            justify-content: center;
         }
-        .price-item {
-            background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #eef2f7;
-            transition: 0.3s;
-        }
-        .price-item:hover { border-color: var(--primary); }
-        .price-item p { color: #666; font-weight: 600; margin-bottom: 5px; }
-        .price-item strong { display: block; font-size: 28px; color: var(--primary); }
 
-        .testimonial {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-style: italic;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        .pix-content {
+            background: white;
+            padding: 30px;
+            max-width: 420px;
+            width: 90%;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pix-qrcode {
+            width: 220px;
+            margin: 15px 0;
+        }
+
+        .pix-copy {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        .closePix {
+            margin-top: 15px;
+            background: #e53935;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
         footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
 
-        /* BOTÃO FLUTUANTE WHATSAPP */
+        /* BOTÃO FLUTUANTE */
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -158,45 +181,12 @@
             transition: 0.3s;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.12);
-        }
-
-        /* Tooltip */
-        .whatsapp-tooltip {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            background: #003087;
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-            transition: 0.3s ease;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
-            z-index: 998;
-        }
-
-        .whatsapp-float:hover + .whatsapp-tooltip {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 22px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        @media(max-width: 768px) {
-            .logo-box img { max-width: 140px; }
-            header { padding: 100px 20px 80px; }
-            .card { padding: 25px; }
-        }
     </style>
 </head>
 
@@ -215,75 +205,60 @@
         <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico." target="_blank">
             <i class="fab fa-whatsapp"></i> Iniciar Atendimento
         </a>
+
+        <button class="btn-pix" onclick="openPixModal()">💠 Pagar Suporte via Pix</button>
     </div>
 </header>
 
 <main class="container">
-    <section class="card">
-        <h2><i class="fas fa-screwdriver-wrench"></i> O que resolvemos</h2>
-        <ul class="services-list">
-            <li><i class="fas fa-check-circle"></i> Remoção de Vírus e Malwares</li>
-            <li><i class="fas fa-check-circle"></i> Otimização de Inicialização</li>
-            <li><i class="fas fa-check-circle"></i> Configuração de Impressoras</li>
-            <li><i class="fas fa-check-circle"></i> Instalação de Programas</li>
-            <li><i class="fas fa-check-circle"></i> Redes Wi-Fi e Roteadores</li>
-            <li><i class="fas fa-check-circle"></i> Backup e Recuperação</li>
-        </ul>
-    </section>
-
+    
     <section class="card">
         <h2><i class="fas fa-hand-holding-dollar"></i> Investimento</h2>
         <div class="price-grid">
-            <div class="price-item">
-                <p>Suporte Rápido</p>
-                <strong>R$ 25</strong>
-                <small>Soluções até 15 min</small>
-            </div>
             <div class="price-item">
                 <p>Sessão Completa</p>
                 <strong>R$ 50</strong>
                 <small>30 a 60 min</small>
             </div>
-            <div class="price-item">
-                <p>Plano Mensal</p>
-                <strong>A combinar</strong>
-                <small>Empresas e Home Office</small>
-            </div>
         </div>
     </section>
 
-    <section class="card" style="text-align: center;">
-        <h2><i class="fas fa-shield-halved"></i> Como Funciona?</h2>
-        <p>Baixe o AnyDesk oficial para que possamos conectar com segurança ao seu dispositivo.</p>
-        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
-            <i class="fas fa-download"></i> Baixar AnyDesk
-        </a>
-        <p style="margin-top: 25px; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <i class="fas fa-info-circle"></i> <strong>Nota de Segurança:</strong> Você acompanha cada movimento do mouse e pode encerrar a conexão a qualquer momento.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2><i class="fas fa-star"></i> Avaliações</h2>
-        <div class="testimonial">"Atendimento impecável e muito rápido. Salvou meu dia de trabalho!" – <strong>Ana Oliveira</strong></div>
-        <div class="testimonial">"Excelente custo-benefício. Resolve problemas que outros técnicos cobram o dobro." – <strong>Paulo Silva</strong></div>
-    </section>
 </main>
+
+<!-- MODAL PIX -->
+<div id="pixModal" class="pix-modal">
+    <div class="pix-content">
+        <h2>Pagamento via Pix</h2>
+        <p>Escaneie o QR Code ou copie o código abaixo:</p>
+
+        <img id="pixQrCode" class="pix-qrcode" src="" alt="QR Code Pix">
+
+        <textarea id="pixCode" class="pix-copy"></textarea>
+
+        <button class="btn" onclick="copyPix()">Copiar Código Pix</button>
+
+        <a class="btn btn-whatsapp" 
+           href="https://wa.me/5581984886096?text=Olá!+Já+realizei+o+pagamento+via+Pix."
+           target="_blank">
+           Já realizei o pagamento
+        </a>
+
+        <button class="closePix" onclick="closePixModal()">Fechar</button>
+    </div>
+</div>
 
 <footer>
     <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
     <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
 </footer>
 
-<!-- BOTÃO FLUTUANTE + TOOLTIP -->
-<a href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico."
+<a href="https://wa.me/5581984886096?text=Olá!+Preciso+de+suporte."
    class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<div class="whatsapp-tooltip">Fale Conosco</div>
-
 <script>
+    /* PARTICLES */
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particlesArray = [];
@@ -323,6 +298,39 @@
     window.addEventListener('resize', initParticles);
     initParticles();
     animate();
+
+    /* SISTEMA PIX */
+    const pixKey = "29033c71-959d-42ff-a1b7-6559e989c435"; 
+    const pixValue = "50.00"; 
+    const pixName = "ORANVIX"; 
+    const pixCity = "RECIFE";
+
+    function gerarPix() {
+        const pixString =
+`00020101021126580014BR.GOV.BCB.PIX0136${pixKey}520400005303986540${pixValue}5802BR5913${pixName}6006${pixCity}62070503***6304`;
+        
+        document.getElementById("pixCode").value = pixString;
+
+        document.getElementById("pixQrCode").src =
+            "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=" + encodeURIComponent(pixString);
+    }
+
+    function openPixModal() {
+        gerarPix();
+        document.getElementById("pixModal").style.display = "flex";
+    }
+
+    function closePixModal() {
+        document.getElementById("pixModal").style.display = "none";
+    }
+
+    function copyPix() {
+        const textarea = document.getElementById("pixCode");
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        alert("Código Pix copiado!");
+    }
 </script>
 
 </body>
