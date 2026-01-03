@@ -44,6 +44,7 @@
             z-index: 2;
         }
 
+        /* LOGO NO CANTO SUPERIOR ESQUERDO */
         .logo-box {
             position: absolute;
             top: 20px;
@@ -136,62 +137,6 @@
 
         footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
 
-        /* BOTÃO FLUTUANTE WHATSAPP */
-        .whatsapp-float {
-            position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 25px;
-            right: 25px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            animation: pulse 1.8s infinite;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.12);
-        }
-
-        /* Tooltip */
-        .whatsapp-tooltip {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            background: #003087;
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-            transition: 0.3s ease;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
-            z-index: 998;
-        }
-
-        .whatsapp-float:hover + .whatsapp-tooltip {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 22px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
         @media(max-width: 768px) {
             .logo-box img { max-width: 140px; }
             header { padding: 100px 20px 80px; }
@@ -202,4 +147,120 @@
 
 <body>
 
-<!-- Correção: Garantindo estrutura válida e limpeza geral -->
+<header>
+    <div class="logo-box">
+        <img src="logo4.png" alt="Oranvix Suporte Técnico">
+    </div>
+
+    <canvas id="particles"></canvas>
+
+    <div class="header-content">
+        <h1>Suporte Técnico Especializado</h1>
+        <p>Atendimento remoto ágil para resolver lentidão, configurar impressoras e eliminar vírus com total segurança.</p>
+        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico." target="_blank">
+            <i class="fab fa-whatsapp"></i> Iniciar Atendimento
+        </a>
+    </div>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2><i class="fas fa-screwdriver-wrench"></i> O que resolvemos</h2>
+        <ul class="services-list">
+            <li><i class="fas fa-check-circle"></i> Remoção de Vírus e Malwares</li>
+            <li><i class="fas fa-check-circle"></i> Otimização de Inicialização</li>
+            <li><i class="fas fa-check-circle"></i> Configuração de Impressoras</li>
+            <li><i class="fas fa-check-circle"></i> Instalação de Programas</li>
+            <li><i class="fas fa-check-circle"></i> Redes Wi-Fi e Roteadores</li>
+            <li><i class="fas fa-check-circle"></i> Backup e Recuperação</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2><i class="fas fa-hand-holding-dollar"></i> Investimento</h2>
+        <div class="price-grid">
+            <div class="price-item">
+                <p>Suporte Rápido</p>
+                <strong>R$ 25</strong>
+                <small>Soluções até 15 min</small>
+            </div>
+            <div class="price-item">
+                <p>Sessão Completa</p>
+                <strong>R$ 50</strong>
+                <small>30 a 60 min</small>
+            </div>
+            <div class="price-item">
+                <p>Plano Mensal</p>
+                <strong>R$ 70</strong>
+                <small>Empresas e Home Office</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="card" style="text-align: center;">
+        <h2><i class="fas fa-shield-halved"></i> Como Funciona?</h2>
+        <p>Baixe o AnyDesk oficial para que possamos conectar com segurança ao seu dispositivo.</p>
+        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
+            <i class="fas fa-download"></i> Baixar AnyDesk
+        </a>
+        <p style="margin-top: 25px; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <i class="fas fa-info-circle"></i> <strong>Nota de Segurança:</strong> Você acompanha cada movimento do mouse e pode encerrar a conexão a qualquer momento.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2><i class="fas fa-star"></i> Avaliações</h2>
+        <div class="testimonial">"Atendimento impecável e muito rápido. Salvou meu dia de trabalho!" – <strong>Ana Oliveira</strong></div>
+        <div class="testimonial">"Excelente custo-benefício. Resolve problemas que outros técnicos cobram o dobro." – <strong>Paulo Silva</strong></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
+    <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
+</footer>
+
+<script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+
+    function initParticles() {
+        canvas.width = window.innerWidth;
+        canvas.height = document.querySelector('header').offsetHeight;
+        particlesArray = [];
+        const quantity = (canvas.width * canvas.height) / 18000;
+        for (let i = 0; i < quantity; i++) {
+            particlesArray.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2 + 0.5,
+                speedX: (Math.random() - 0.5) * 0.7,
+                speedY: (Math.random() - 0.5) * 0.7
+            });
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particlesArray.forEach(p => {
+            p.x += p.speedX;
+            p.y += p.speedY;
+            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.fill();
+        });
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', initParticles);
+    initParticles();
+    animate();
+</script>
+
+</body>
+</html>
