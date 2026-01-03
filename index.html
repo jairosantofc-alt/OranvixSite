@@ -44,7 +44,6 @@
             z-index: 2;
         }
 
-        /* LOGO NO CANTO SUPERIOR ESQUERDO */
         .logo-box {
             position: absolute;
             top: 20px;
@@ -137,6 +136,62 @@
 
         footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
 
+        /* BOTÃO FLUTUANTE WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            animation: pulse 1.8s infinite;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.12);
+        }
+
+        /* Tooltip */
+        .whatsapp-tooltip {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            background: #003087;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: 0.3s ease;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+            z-index: 998;
+        }
+
+        .whatsapp-float:hover + .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 22px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         @media(max-width: 768px) {
             .logo-box img { max-width: 140px; }
             header { padding: 100px 20px 80px; }
@@ -191,7 +246,7 @@
             </div>
             <div class="price-item">
                 <p>Plano Mensal</p>
-                <strong>R$ 70</strong>
+                <strong>A combinar</strong>
                 <small>Empresas e Home Office</small>
             </div>
         </div>
@@ -219,6 +274,14 @@
     <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
     <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
 </footer>
+
+<!-- BOTÃO FLUTUANTE + TOOLTIP -->
+<a href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico."
+   class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="whatsapp-tooltip">Fale Conosco</div>
 
 <script>
     const canvas = document.getElementById('particles');
