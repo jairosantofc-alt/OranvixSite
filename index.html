@@ -1,274 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oranvix - Suporte técnico remoto especializado. Remoção de vírus, otimização de PC e suporte AnyDesk.">
-    <meta name="author" content="Oranvix">
     <title>Oranvix - Suporte Técnico Remoto</title>
-
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-        :root {
-            --primary: #0f6bfd;
-            --secondary: #003087;
-            --dark: #000000;
-            --success: #25d366;
-            --danger: #e53935;
-            --light-bg: #e9eef5;
-            --glass: rgba(255, 255, 255, 0.93);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: var(--light-bg);
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* HEADER */
-        header {
-            position: relative;
-            background: linear-gradient(135deg, #000000, #003087, #0f6bfd);
-            color: #fff;
-            text-align: center;
-            padding: 120px 20px 100px;
-            overflow: hidden;
-        }
-
-        #particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.28;
-            z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* LOGO */
-        .logo-box {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 5;
-        }
-
-        .logo-box img {
-            max-width: 180px;
-            height: auto;
-            filter: drop-shadow(0 0 12px rgba(15, 107, 253, 0.45));
-        }
-
-        @media (max-width: 768px) {
-            .logo-box img {
-                max-width: 140px;
-            }
-        }
-
-        header h1 {
-            font-size: clamp(1.8rem, 5vw, 2.8rem);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            padding: 16px 35px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            color: #fff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-whatsapp { background: var(--success); }
-        .btn-anydesk { background: var(--danger); }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: -50px auto 50px;
-            position: relative;
-            z-index: 3;
-        }
-
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--secondary);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-        }
-
-        .services-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-            list-style: none;
-        }
-
-        .services-list li {
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .services-list li i {
-            color: var(--success);
-            font-size: 1.1rem;
-        }
-
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .price-item {
-            background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #eef2f7;
-            transition: 0.3s;
-        }
-
-        .price-item:hover {
-            border-color: var(--primary);
-        }
-
-        .price-item p {
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .price-item strong {
-            display: block;
-            font-size: 28px;
-            color: var(--primary);
-        }
-
-        .price-item small {
-            display: block;
-            color: #777;
-        }
-
-        .testimonial {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-style: italic;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-        }
-
-        footer {
-            background: var(--dark);
-            color: #888;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 14px;
-        }
-
-        /* WHATSAPP FLOAT BUTTON */
-        .whatsapp-float {
-            position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--success);
-            color: #fff;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-            z-index: 999;
-            transition: 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.12);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #f0f2f5; color: #333; }
+        header { position: relative; overflow: hidden; background: linear-gradient(135deg, #1a73e8, #0b4bb3); padding: 80px 20px; color: #fff; text-align: center; }
+        header h1 { font-size: 42px; font-weight: 700; }
+        header p { font-size: 20px; margin-top: 10px; opacity: .9; }
+        .btn-whatsapp { background: #25d366; padding: 15px 30px; color: #fff; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; display: inline-block; margin-top: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: .3s; }
+        .btn-whatsapp:hover { transform: scale(1.05); }
+        .section { width: 90%; max-width: 1100px; margin: 50px auto; }
+        .card { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 40px; }
+        h2 { font-size: 28px; margin-bottom: 15px; color:#0b4bb3; }
+        ul li { margin: 10px 0; font-size: 18px; }
+        .price-box { background: #1a73e8; padding: 30px; border-radius: 16px; color: white; font-size: 22px; text-align: center; line-height: 40px; }
+        .testimonials p { background: #f7f7f7; padding: 15px; border-left: 4px solid #1a73e8; margin-bottom: 15px; border-radius: 8px; font-size: 17px; }
+        footer { background: #111; color: #ccc; text-align: center; padding: 25px; margin-top: 50px; font-size: 15px; }
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
+        header h1, header p { animation: fadeInUp 1s ease forwards; }
+        .card { animation: fadeInUp .8s ease; }
+        .btn-whatsapp { animation: float 3s ease-in-out infinite; }
+        canvas#particles { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; opacity:0.25; }
+        header h1, header p, header .btn-whatsapp { position:relative; z-index:2; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo-box">
-            <img src="images/logo.png" alt="Logo Oranvix">
+<header>
+    <canvas id="particles"></canvas>
+    <img src="data:image/png;base64,AAAA..." alt="Logo Oranvix" style="width:140px; margin-bottom:20px; animation: fadeInUp 1s ease;">
+    <h1>Oranvix – Suporte Técnico Remoto</h1>
+    <p>Atendimento rápido, seguro e confiável para computadores, Wi-Fi, impressoras e otimização completa.</p>
+    <a class="btn-whatsapp" href="https://wa.me/5581999999999" target="_blank">Atendimento via WhatsApp</a>
+</header>
+<div class="section">
+    <div class="card">
+        <h2>Serviços</h2>
+        <ul>
+            <li>📌 Remoção de vírus, travamentos e lentidão</li>
+            <li>📌 Instalação e atualização de softwares</li>
+            <li>📌 Configurações de Wi-Fi e redes</li>
+            <li>📌 Impressoras: instalação, drivers e ajustes</li>
+            <li>📌 Backup e recuperação de arquivos</li>
+            <li>📌 Suporte para idosos e iniciantes</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h2>Valores</h2>
+        <div class="price-box">
+            Suporte Rápido (até 15 min): <strong>R$ 25</strong><br>
+            Suporte Completo (30–60 min): <strong>R$ 50</strong><br>
+            Plano Mensal: <strong>R$ 70</strong>
         </div>
-        <div class="header-content">
-            <h1>Oranvix - Suporte Técnico Remoto</h1>
-            <p>Remoção de vírus, otimização de PC e suporte via AnyDesk com atendimento rápido.</p>
-            <a href="https://wa.me/seunumerowhatsapp" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://anydesk.com" class="btn btn-anydesk"><i class="fas fa-desktop"></i> AnyDesk</a>
-        </div>
-    </header>
+    </div>
+    <div class="card">
+        <h2>Como Funciona?</h2>
+        <p>1️⃣ Você chama no WhatsApp<br>2️⃣ Descreve o problema<br>3️⃣ Acesso remoto via AnyDesk<br>4️⃣ Solução rápida e segura!</p>
+        <br>
+        <a class="btn-whatsapp" style="background:#e53935" href="https://anydesk.com/pt/downloads" target="_blank">Baixar AnyDesk</a>
+    </div>
+    <div class="card testimonials">
+        <h2>Depoimentos</h2>
+        <p>⭐⭐⭐⭐⭐ “Resolveu meu problema em minutos! Muito profissional.” – Ana</p>
+        <p>⭐⭐⭐⭐⭐ “Minha impressora voltou a funcionar! Atendimento top.” – Paulo</p>
+        <p>⭐⭐⭐⭐⭐ “Explica tudo com calma. Excelente suporte.” – Roberto</p>
+    </div>
+</div>
+<footer>
+    © 2025 Oranvix – Todos os direitos reservados
+</footer>
+</body>
+</html>''')
 
-    <div class="container">
-        <!-- Serviços -->
-        <div class="card">
-            <h2><i class="fas fa-tools"></i> Serviços</h2>
-            <ul class="services-list">
-                <li><i class="fas fa-check-circle"></i> Remoção de vírus e malwares</li>
-                <li><i class="fas fa-check-circle"></i> Otimização de desempenho</li>
-                <li><i class="fas fa-check-circle"></i> Suporte remoto via AnyDesk</li>
-                <li><i class="fas fa-check-circle"></i> Atendimento rápido pelo WhatsApp</li>
-            </ul>
-        </div>
+zip_path
 
-        <!-- Preços -->
-        <div class="card">
-            <h2><i class="fas fa-tags"></i> Planos e Preços</h2>
-            <div class="
