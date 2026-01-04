@@ -1,80 +1,18 @@
+.logo-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oranvix - Suporte Técnico Remoto</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #f0f2f5; color: #333; }
-        header { position: relative; overflow: hidden; background: linear-gradient(135deg, #1a73e8, #0b4bb3); padding: 80px 20px; color: #fff; text-align: center; }
-        header h1 { font-size: 42px; font-weight: 700; }
-        header p { font-size: 20px; margin-top: 10px; opacity: .9; }
-        .btn-whatsapp { background: #25d366; padding: 15px 30px; color: #fff; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; display: inline-block; margin-top: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: .3s; }
-        .btn-whatsapp:hover { transform: scale(1.05); }
-        .section { width: 90%; max-width: 1100px; margin: 50px auto; }
-        .card { background: #fff; padding: 30px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); margin-bottom: 40px; }
-        h2 { font-size: 28px; margin-bottom: 15px; color:#0b4bb3; }
-        ul li { margin: 10px 0; font-size: 18px; }
-        .price-box { background: #1a73e8; padding: 30px; border-radius: 16px; color: white; font-size: 22px; text-align: center; line-height: 40px; }
-        .testimonials p { background: #f7f7f7; padding: 15px; border-left: 4px solid #1a73e8; margin-bottom: 15px; border-radius: 8px; font-size: 17px; }
-        footer { background: #111; color: #ccc; text-align: center; padding: 25px; margin-top: 50px; font-size: 15px; }
-        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0); } }
-        header h1, header p { animation: fadeInUp 1s ease forwards; }
-        .card { animation: fadeInUp .8s ease; }
-        .btn-whatsapp { animation: float 3s ease-in-out infinite; }
-        canvas#particles { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; opacity:0.25; }
-        header h1, header p, header .btn-whatsapp { position:relative; z-index:2; }
-    </style>
-</head>
-<body>
-<header>
-    <canvas id="particles"></canvas>
-    <img src="data:image/png;base64,AAAA..." alt="Logo Oranvix" style="width:140px; margin-bottom:20px; animation: fadeInUp 1s ease;">
-    <h1>Oranvix – Suporte Técnico Remoto</h1>
-    <p>Atendimento rápido, seguro e confiável para computadores, Wi-Fi, impressoras e otimização completa.</p>
-    <a class="btn-whatsapp" href="https://wa.me/5581999999999" target="_blank">Atendimento via WhatsApp</a>
-</header>
-<div class="section">
-    <div class="card">
-        <h2>Serviços</h2>
-        <ul>
-            <li>📌 Remoção de vírus, travamentos e lentidão</li>
-            <li>📌 Instalação e atualização de softwares</li>
-            <li>📌 Configurações de Wi-Fi e redes</li>
-            <li>📌 Impressoras: instalação, drivers e ajustes</li>
-            <li>📌 Backup e recuperação de arquivos</li>
-            <li>📌 Suporte para idosos e iniciantes</li>
-        </ul>
-    </div>
-    <div class="card">
-        <h2>Valores</h2>
-        <div class="price-box">
-            Suporte Rápido (até 15 min): <strong>R$ 25</strong><br>
-            Suporte Completo (30–60 min): <strong>R$ 50</strong><br>
-            Plano Mensal: <strong>R$ 70</strong>
-        </div>
-    </div>
-    <div class="card">
-        <h2>Como Funciona?</h2>
-        <p>1️⃣ Você chama no WhatsApp<br>2️⃣ Descreve o problema<br>3️⃣ Acesso remoto via AnyDesk<br>4️⃣ Solução rápida e segura!</p>
-        <br>
-        <a class="btn-whatsapp" style="background:#e53935" href="https://anydesk.com/pt/downloads" target="_blank">Baixar AnyDesk</a>
-    </div>
-    <div class="card testimonials">
-        <h2>Depoimentos</h2>
-        <p>⭐⭐⭐⭐⭐ “Resolveu meu problema em minutos! Muito profissional.” – Ana</p>
-        <p>⭐⭐⭐⭐⭐ “Minha impressora voltou a funcionar! Atendimento top.” – Paulo</p>
-        <p>⭐⭐⭐⭐⭐ “Explica tudo com calma. Excelente suporte.” – Roberto</p>
-    </div>
-</div>
-<footer>
-    © 2025 Oranvix – Todos os direitos reservados
-</footer>
-</body>
-</html>''')
+.logo-box img {
+    max-width: 180px;
+    height: auto;
+    filter: drop-shadow(0 0 12px rgba(15, 107, 253, 0.45));
+}
 
-zip_path
-
+@media (max-width: 768px) {
+    .logo-box img {
+        max-width: 140px;
+    }
+}
