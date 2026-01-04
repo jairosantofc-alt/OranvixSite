@@ -11,159 +11,188 @@
 
     <style>
         :root {
-            --primary: #0f6bfd;       
-            --secondary: #003087;     
-            --dark: #000000;          
+            --primary: #1a73e8;
+            --secondary: #0b4bb3;
             --success: #25d366;
             --danger: #e53935;
-            --light-bg: #e9eef5;
+            --dark: #111;
+            --light-bg: #eaf2ff; /* Fundo ajustado para combinar com o logo */
             --glass: rgba(255, 255, 255, 0.93);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
 
-        /* HEADER */
+        /* Header */
         header {
             position: relative;
-            background: linear-gradient(135deg, #000000, #003087, #0f6bfd);
+            background: linear-gradient(135deg, #0039a6, #0065ff); /* cores do logo */
+            padding: 40px 20px 80px;
             color: #fff;
-            text-align: center;
-            padding: 120px 20px 100px;
-            overflow: hidden;
         }
 
-        #particles {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.28; z-index: 1;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* LOGO NO CANTO SUPERIOR ESQUERDO */
-        .logo-box {
+        /* Logo alinhado no topo esquerdo */
+        .logo-top {
             position: absolute;
             top: 20px;
             left: 20px;
-            z-index: 5;
+            z-index: 10;
+        }
+        .logo-top img {
+            width: 150px;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
         }
 
-        .logo-box img {
-            max-width: 180px;
-            height: auto;
-            filter: drop-shadow(0 0 12px rgba(15, 107, 253, 0.45));
+        header h1 { 
+            margin-top: 80px;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 700; 
+        }
+        header p {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 10px auto 0;
         }
 
-        header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 10px; }
-        header p { font-size: 1.1rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
-
+        /* Botão principal */
         .btn {
             padding: 16px 35px;
             border-radius: 50px;
             font-size: 18px;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            gap: 10px;
             color: #fff;
+            margin-top: 30px;
             text-decoration: none;
-            transition: 0.3s;
+            background: var(--success);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: .3s;
         }
-        .btn-whatsapp { background: var(--success); }
-        .btn-anydesk { background: var(--danger); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .btn:hover {
+            transform: translateY(-3px);
+        }
 
+        /* Container */
         .container {
             width: 90%;
             max-width: 1100px;
-            margin: -50px auto 50px;
-            position: relative;
-            z-index: 3;
+            margin: -40px auto 40px;
         }
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.4);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 30px;
+            border-radius: 16px;
             margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
-        h2 { color: var(--secondary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
+        h2 {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
+        /* Lista de serviços */
         .services-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 15px;
-            list-style: none;
+            gap: 12px;
         }
-        .services-list li { font-size: 16px; display: flex; align-items: center; gap: 10px; }
-        .services-list li i { color: var(--success); font-size: 1.1rem; }
+        .services-list li {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            font-size: 16px;
+        }
+        .services-list i { color: var(--success); }
 
+        /* Preços */
         .price-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            text-align: center;
         }
         .price-item {
-            background: #fff;
             padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #eef2f7;
-            transition: 0.3s;
-        }
-        .price-item:hover { border-color: var(--primary); }
-        .price-item p { color: #666; font-weight: 600; margin-bottom: 5px; }
-        .price-item strong { display: block; font-size: 28px; color: var(--primary); }
-
-        .testimonial {
             background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-style: italic;
-            border-left: 5px solid var(--primary);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: .3s;
+        }
+        .price-item:hover {
+            border-color: var(--primary);
+        }
+        .price-item strong {
+            font-size: 26px;
+            color: var(--primary);
         }
 
-        footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 14px; }
-
-        @media(max-width: 768px) {
-            .logo-box img { max-width: 140px; }
-            header { padding: 100px 20px 80px; }
-            .card { padding: 25px; }
+        footer {
+            background: var(--dark);
+            padding: 35px 10px;
+            color: #999;
+            text-align: center;
         }
+
+        /* Botão WhatsApp flutuante com PULSE */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(37, 211, 102, 0.5);
+            animation: pulse 1.7s infinite;
+        }
+        .whatsapp-float img {
+            width: 42px;
+            height: 42px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 25px rgba(37,211,102,0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
     </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo-box">
-        <img src="logo4.png" alt="Oranvix Suporte Técnico">
+
+    <div class="logo-top">
+        <img src="logo4.png" alt="Oranvix Logo">
     </div>
 
-    <canvas id="particles"></canvas>
+    <h1>Suporte Técnico Especializado</h1>
+    <p>Removemos vírus, corrigimos lentidão, configuramos impressoras e oferecemos suporte remoto seguro.</p>
 
-    <div class="header-content">
-        <h1>Suporte Técnico Especializado</h1>
-        <p>Atendimento remoto ágil para resolver lentidão, configurar impressoras e eliminar vírus com total segurança.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5581984886096?text=Olá!+Gostaria+de+solicitar+um+suporte+técnico." target="_blank">
+    <center>
+        <a class="btn" href="https://wa.me/5581984886096?text=Ol%C3%A1%2C%20preciso%20de%20suporte%20t%C3%A9cnico%20da%20Oranvix." target="_blank">
             <i class="fab fa-whatsapp"></i> Iniciar Atendimento
         </a>
-    </div>
+    </center>
+
 </header>
 
 <main class="container">
+
     <section class="card">
         <h2><i class="fas fa-screwdriver-wrench"></i> O que resolvemos</h2>
         <ul class="services-list">
@@ -178,17 +207,20 @@
 
     <section class="card">
         <h2><i class="fas fa-hand-holding-dollar"></i> Investimento</h2>
+
         <div class="price-grid">
             <div class="price-item">
                 <p>Suporte Rápido</p>
                 <strong>R$ 25</strong>
-                <small>Soluções até 15 min</small>
+                <small>Até 15 minutos</small>
             </div>
+
             <div class="price-item">
                 <p>Sessão Completa</p>
                 <strong>R$ 50</strong>
                 <small>30 a 60 min</small>
             </div>
+
             <div class="price-item">
                 <p>Plano Mensal</p>
                 <strong>R$ 70</strong>
@@ -197,70 +229,23 @@
         </div>
     </section>
 
-    <section class="card" style="text-align: center;">
-        <h2><i class="fas fa-shield-halved"></i> Como Funciona?</h2>
-        <p>Baixe o AnyDesk oficial para que possamos conectar com segurança ao seu dispositivo.</p>
-        <a class="btn btn-anydesk" href="https://anydesk.com/pt/downloads" target="_blank">
-            <i class="fas fa-download"></i> Baixar AnyDesk
-        </a>
-        <p style="margin-top: 25px; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <i class="fas fa-info-circle"></i> <strong>Nota de Segurança:</strong> Você acompanha cada movimento do mouse e pode encerrar a conexão a qualquer momento.
-        </p>
-    </section>
-
     <section class="card">
         <h2><i class="fas fa-star"></i> Avaliações</h2>
-        <div class="testimonial">"Atendimento impecável e muito rápido. Salvou meu dia de trabalho!" – <strong>Ana Oliveira</strong></div>
-        <div class="testimonial">"Excelente custo-benefício. Resolve problemas que outros técnicos cobram o dobro." – <strong>Paulo Silva</strong></div>
+        <p>“Atendimento rápido, profissional e seguro!” – <strong>Ana Oliveira</strong></p>
+        <p>“Resolveu em 10 minutos o que eu tentava há 2 horas.” – <strong>Paulo Silva</strong></p>
     </section>
+
 </main>
 
 <footer>
     <p>&copy; 2025 Oranvix – Tecnologia e Suporte Remoto</p>
-    <p>Atendimento: Segunda a Sábado, 08h às 20h.</p>
 </footer>
 
-<script>
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particlesArray = [];
-
-    function initParticles() {
-        canvas.width = window.innerWidth;
-        canvas.height = document.querySelector('header').offsetHeight;
-        particlesArray = [];
-        const quantity = (canvas.width * canvas.height) / 18000;
-        for (let i = 0; i < quantity; i++) {
-            particlesArray.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.7,
-                speedY: (Math.random() - 0.5) * 0.7
-            });
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particlesArray.forEach(p => {
-            p.x += p.speedX;
-            p.y += p.speedY;
-            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-            ctx.fill();
-        });
-        requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', initParticles);
-    initParticles();
-    animate();
-</script>
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a href="https://wa.me/5581984886096?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20preciso%20de%20atendimento." 
+   class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
